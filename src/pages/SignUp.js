@@ -46,7 +46,7 @@ const SignUp = () => {
             console.log("**************", result)
 
             // console.log("+++++++++++++++", status);
-            // console.log("--------------", data)
+            // console.log("--------------", data);
 
         } catch (err) {
             console.log(err)
