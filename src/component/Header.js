@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg">
             <Container>
-                <Navbar.Brand>
+                <Navbar.Brand href={"/"}>
                     JY Store
                 </Navbar.Brand>
                 <Navbar.Collapse id="responsive-navbar-nav">

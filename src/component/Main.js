@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Card, Carousel, Col, Container, Row} from "react-bootstrap";
+import {Button, Card, Carousel, Col, Container, Row, Tab, Tabs} from "react-bootstrap";
 // import one from "../img/one.jpg";
 // import two from "../img/two.jpg";
 // import three from "../img/three.jpg";
@@ -96,28 +96,53 @@ const Main = () => {
                         ))}
                     </Carousel>
 
-                    {/* product */}
-
+                    {/*  tabs  */}
                     <Container className={"mt-5"}>
-                        <Row>
-                                {itemList && itemList.map(mac => (
-                                    <Col className = {"mt-5"}>
-                                        <Card style={{ width: '18rem' }}>
-                                            <Card.Img
-                                                variant="top"
-                                                src={mac.img} />
-                                            <Card.Body>
-                                                <Card.Title>{mac.title}</Card.Title>
-                                                <Card.Text>
-                                                    {mac.overview}
-                                                </Card.Text>
-                                                <Button variant="primary">Go somewhere</Button>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                ))}
-                        </Row>
+                        <Tabs
+                            defaultActiveKey="profile"
+                            id="fill-tab-example"
+                            className="mb-3"
+                            fill
+                        >
+                            <Tab eventKey="home" title="Total">
+
+                                <Container className={"mt-5"}>
+                                    <Row>
+                                        {itemList && itemList.map(mac => (
+                                            <Col className = {"mt-5"}>
+                                                <Card style={{ width: '18rem' }}>
+                                                    <Card.Img
+                                                        variant="top"
+                                                        src={mac.img} />
+                                                    <Card.Body>
+                                                        <Card.Title>{mac.title}</Card.Title>
+                                                        <Card.Text>
+                                                            {mac.overview}
+                                                        </Card.Text>
+                                                        <Button variant="primary">Go somewhere</Button>
+                                                    </Card.Body>
+                                                </Card>
+                                            </Col>
+                                        ))}
+                                    </Row>
+                                </Container>
+                            </Tab>
+
+
+                            <Tab eventKey="profile" title="Electron">
+                                Proflie
+                            </Tab>
+                            <Tab eventKey="longer-tab" title="Moblie">
+                                Loooooger
+                            </Tab>
+                            <Tab eventKey="contact" title="Notebook" disabled>
+                                how about this
+                            </Tab>
+                        </Tabs>
                     </Container>
+
+
+                    {/* product */}
 
                 </>
             );
