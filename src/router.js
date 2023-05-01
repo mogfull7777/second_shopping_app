@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 import FindEmail from "./pages/FindEmail";
+import Profile from "./pages/Profile";
 
 const Router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const Router = createBrowserRouter([
     {
         path : "/find/email",
         element : <FindEmail />
+    },
+    {
+        path : "/profile",
+        element : <Profile />
     }
 ])
 

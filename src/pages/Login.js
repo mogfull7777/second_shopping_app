@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isChack, setIsChack] = useState(false);
 
     const loginSubmitHendle = async (e) => {
+
         e.preventDefault()
 
         try {
@@ -23,7 +27,24 @@ const Login = () => {
                 isChack : isChack
             }
 
-            console.log(userInput)
+            // console.log(userInput)
+
+            const {data, status} = await axios.post("http://localhost:9090/api/users/login", userInput)
+
+            // . 하나를 호출
+            // , 그리고
+
+            if (status === 200) {
+                alert("login success")
+
+                localStorage.setItem("token", data.token)
+
+                navigate("/profile")
+            }
+
+            console.log("**********", data)
+
+
 
         } catch (err) {
             console.log(err)
